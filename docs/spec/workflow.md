@@ -1,5 +1,14 @@
 # Workflow
 
+## Bootstrap
+
+Before a project's rules exist:
+
+1. The BDFL creates the repository and sets the topic `mandate` (agents have no administration access).
+2. One initial commit goes to `main`; the only push to the default branch ever allowed.
+3. An agent creates the labels below and opens the inception PR (`VISION.md`, first ADRs, milestone 001).
+4. CODEOWNERS and rulesets are applied before the inception PR merges.
+
 ## Milestone loop
 
 1. **Approve.** The BDFL merges a milestone proposal. An agent creates the GitHub milestone `NNN <title>` and decomposes Scope into task issues in it.
