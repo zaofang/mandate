@@ -76,3 +76,7 @@ Heavier 命 at smaller sizes so strokes hold on the pixel grid.
 | `icon-dark.svg`, `icon-light.svg` | App and avatar, 512 |
 | `favicon.svg`, `favicon-16.png`, `favicon-32.png`, `apple-touch-icon.png` | Browser |
 | `social-preview.png` | GitHub social preview, 1280 × 640 |
+
+## Use by others
+
+The files in `assets/brand/` are public so you can refer to Mandate correctly, not covered by the MIT licence. Use them unmodified to refer to this project. Do not use the name or marks for a fork or another product.
