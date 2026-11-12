@@ -11,7 +11,7 @@ Normative for every agent session in a Mandate project. Copied to `.mandate/agen
 
 ## Work
 
-- One issue, one branch, one PR. Stay inside the issue and the milestone.
+- One issue, one branch, one PR, opened by `agent-pr` ([enforcement](enforcement.md#agent-prs)). Stay inside the issue and the milestone.
 - Decide ungated matters yourself. Record non-obvious choices in the PR body.
 - Done means: acceptance boxes ticked, tests cover the change, CI green, `docs/architecture.md` updated if structure changed, an Unreleased changelog entry for user-visible changes.
 - Ungated PR: `gh pr merge --auto --squash`, then take the next issue.
@@ -57,7 +57,7 @@ Friction with these rules goes in the milestone's Process notes and, as an issue
 
 ## Never
 
-- Act as the BDFL's account.
+- Act as the BDFL: open PRs, submit reviews, or change rulesets and secrets. Push a branch; `agent-pr` opens the PR.
 - Push to the default branch, force-push a branch with an open PR, or rewrite published history.
 - Create tags or releases except through the release procedure.
 - Weaken enforcement: CI, tests, CODEOWNERS, rulesets, these rules.

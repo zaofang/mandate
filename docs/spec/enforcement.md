@@ -14,7 +14,11 @@ One private GitHub App per owner (zaofang, animal-spirits, the BDFL's account), 
 | Workflows | none |
 | Administration | none |
 
-Without the workflows permission GitHub rejects any push from the App that changes `.github/workflows/`. Agent runners mint short-lived installation tokens; commits and PRs appear as `<app>[bot]`, which lets the BDFL approve them.
+Without the workflows permission GitHub rejects any push from the App that changes `.github/workflows/`. Runners that can use the App push with its installation tokens. Runners that act through the BDFL's account (claude.ai sessions) push as the BDFL; for them CODEOWNERS on `.github/` is the only workflow gate.
+
+## Agent PRs
+
+Agents push branches; they never open PRs or submit reviews. The `agent-pr` workflow runs on every push to `agent/**` and `claude/**`, mints an App installation token from the `APP_ID` variable and `APP_PRIVATE_KEY` secret, and opens a PR for the branch if none is open. Every PR is therefore authored by `<app>[bot]`, which lets the BDFL approve it. Agents may edit the PR body. The BDFL's own changes take the same path.
 
 ## Path gates
 
@@ -38,7 +42,8 @@ Default-branch ruleset, committed as JSON in `.github/rulesets/`:
 - Pull request required; required approvals 0; review from code owners required.
 - Required checks: `mandate-check`, `mandate-gate`, `ci` (project CI's aggregate job).
 - Squash only; linear history; no force push; no deletion.
-- Bypass: repository admin only, so the BDFL's own PRs merge without the self-approval GitHub forbids. The App has no bypass.
+- Stale approvals dismissed on push.
+- No bypass actors ([ADR-0015](../adr/0015-agent-prs-opened-by-app.md)).
 
 Result: an agent PR touching a CODEOWNERS path waits for BDFL approval; any other PR merges on green.
 

@@ -11,3 +11,4 @@
 ### Changed
 - Spec: required checks must run on every PR; project CI exposes one aggregate `ci` job.
 - Spec: agents keep taking issues after reporting; idle active projects are reported stalled.
+- Agents push branches; the `agent-pr` workflow opens PRs as the App. Rulesets have no bypass (ADR-0015, supersedes ADR-0013).
