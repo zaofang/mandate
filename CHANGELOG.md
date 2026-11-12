@@ -9,6 +9,7 @@
 - Identity: 命 + mandate lockup, turquoise inlay colours, icons, social preview, `docs/brand.md`.
 - MIT licence; the marks in `assets/brand/` are excluded.
 - Template core files in `template/`.
+- `mandate-gate` (`bin/mandate-gate`) and its workflow in the template.
 - Profile additions in `profiles/tooling/` and `profiles/game/`.
 
 ### Changed
