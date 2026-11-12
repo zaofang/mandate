@@ -10,3 +10,4 @@
 
 ### Changed
 - Spec: required checks must run on every PR; project CI exposes one aggregate `ci` job.
+- Spec: agents keep taking issues after reporting; idle active projects are reported stalled.
