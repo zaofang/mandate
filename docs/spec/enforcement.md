@@ -33,10 +33,10 @@ Without the workflows permission GitHub rejects any push from the App that chang
 # profile entries follow
 ```
 
-Default-branch ruleset:
+Default-branch ruleset, committed as JSON in `.github/rulesets/`:
 
 - Pull request required; required approvals 0; review from code owners required.
-- Required checks: `mandate-check`, `mandate-gate`, project CI.
+- Required checks: `mandate-check`, `mandate-gate`, `ci` (project CI's aggregate job).
 - Squash only; linear history; no force push; no deletion.
 - Bypass: repository admin only, so the BDFL's own PRs merge without the self-approval GitHub forbids. The App has no bypass.
 
@@ -62,4 +62,5 @@ Run in CI on every PR:
 - an accepted ADR's Decision section is unchanged unless the same PR supersedes it;
 - `CLAUDE.md` imports `.mandate/agents.md` and `AGENTS.md`;
 - `.mandate/agents.md` matches the pinned framework version;
+- every required check in the committed ruleset JSON names a job that runs on every `pull_request` with no path or branch filter;
 - profile checks ([profiles](profiles.md)).

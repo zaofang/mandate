@@ -5,7 +5,7 @@ bash 5 over `git`, `gh` and `jq`. Git-style dispatch: `mandate <cmd>` runs `mand
 | Command | Effect |
 |---|---|
 | `mandate init <profile>` | Scaffold from the template; create labels, CODEOWNERS, rulesets, topic `mandate`; status inception |
-| `mandate sync [--upgrade]` | Reapply template-managed files, labels and rulesets at the pinned version; `--upgrade` opens a gated PR bumping `.mandate/version` |
+| `mandate sync [--upgrade]` | Reapply template-managed files, labels and rulesets at the pinned version; `--upgrade` opens a gated PR bumping `.mandate/version`. Refuses a ruleset whose required checks fail `mandate check` |
 | `mandate status [repo...]` | State, active milestone progress, open gates, blocked issues |
 | `mandate next [--claim]` | Next workable issue; `--claim` labels it `wip` and comments the session id |
 | `mandate adr new <title>` | ADR file from template with the next number, on a new branch |
