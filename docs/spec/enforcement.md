@@ -37,10 +37,10 @@ Agents push branches; they never open PRs or submit reviews. The `agent-pr` work
 # profile entries follow
 ```
 
-Default-branch ruleset:
+Default-branch ruleset, committed as JSON in `.github/rulesets/`:
 
 - Pull request required; required approvals 0; review from code owners required.
-- Required checks: `mandate-check`, `mandate-gate`, project CI.
+- Required checks: `mandate-check`, `mandate-gate`, `ci` (project CI's aggregate job).
 - Squash only; linear history; no force push; no deletion.
 - Stale approvals dismissed on push.
 - No bypass actors ([ADR-0015](../adr/0015-agent-prs-opened-by-app.md)).
@@ -67,4 +67,5 @@ Run in CI on every PR:
 - an accepted ADR's Decision section is unchanged unless the same PR supersedes it;
 - `CLAUDE.md` imports `.mandate/agents.md` and `AGENTS.md`;
 - `.mandate/agents.md` matches the pinned framework version;
+- every required check in the committed ruleset JSON names a job that runs on every `pull_request` with no path or branch filter;
 - profile checks ([profiles](profiles.md)).

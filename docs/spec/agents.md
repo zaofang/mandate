@@ -15,6 +15,7 @@ Normative for every agent session in a Mandate project. Copied to `.mandate/agen
 - Decide ungated matters yourself. Record non-obvious choices in the PR body.
 - Done means: acceptance boxes ticked, tests cover the change, CI green, `docs/architecture.md` updated if structure changed, an Unreleased changelog entry for user-visible changes.
 - Ungated PR: `gh pr merge --auto --squash`, then take the next issue.
+- Reporting is not a stopping point. While `mandate next` returns an issue, take it.
 
 ## Gated matters
 

@@ -1,5 +1,14 @@
 # Workflow
 
+## Bootstrap
+
+Before a project's rules exist:
+
+1. The BDFL creates the repository and sets the topic `mandate` (agents have no administration access).
+2. One initial commit goes to `main`; the only push to the default branch ever allowed.
+3. An agent creates the labels below and opens the inception PR (`VISION.md`, first ADRs, milestone 001).
+4. CODEOWNERS and rulesets are applied before the inception PR merges.
+
 ## Milestone loop
 
 1. **Approve.** The BDFL merges a milestone proposal. An agent creates the GitHub milestone `NNN <title>` and decomposes Scope into task issues in it.
@@ -70,6 +79,8 @@ Approving the PR confirms the transcription. The claude.ai project carries `VISI
 | Agent blocked | Issue assigned to the BDFL; GitHub Mobile push |
 | Weekly | Digest issue in the Mandate repository, mentioning the BDFL; GitHub Mobile push |
 
-`mandate digest` reports per project: state, active milestone progress, open gates with age, blocked issues, `triage` count, PRs merged in the period. Gates and blocks come first. The agent runner runs `mandate digest --post` weekly; it opens a new issue labeled `digest` and closes the previous one.
+A project is **stalled** when it is active, `mandate next` has an issue, and the last agent activity (claim comment, push, PR event) is older than 2 hours. `mandate status` and the digest report it.
+
+`mandate digest` reports per project: state, stalled, active milestone progress, open gates with age, blocked issues, `triage` count, PRs merged in the period. Stalled projects, gates and blocks come first. The agent runner runs `mandate digest --post` weekly; it opens a new issue labeled `digest` and closes the previous one.
 
 Projects are found by the GitHub topic `mandate` on the owners listed in `~/.config/mandate/owners`.
