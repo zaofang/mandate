@@ -1,0 +1,12 @@
+name: ci
+on: pull_request
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: shellcheck bin/* tests/*.sh
+      - run: tests/check.sh
+      - run: tests/gate.sh
+      - name: template contract is the spec with absolute links
+        run: diff <(sed -E 's#\]\(([a-z]+\.md)#](https://github.com/zaofang/mandate/blob/main/docs/spec/\1#g' docs/spec/agents.md) template/.mandate/agents.md

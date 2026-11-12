@@ -1,2 +1,2 @@
-@docs/spec/agents.md
+@.mandate/agents.md
 @AGENTS.md
