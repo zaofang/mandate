@@ -34,13 +34,13 @@ Name: Mandate (`mandate`). Weekly digest as an issue in the Mandate repository; 
 - `VISION.md`, `ROADMAP.md`, `AGENTS.md`, `CLAUDE.md`, `README.md`, `CHANGELOG.md`, `docs/architecture.md`.
 - Identity: `docs/brand.md`, `assets/brand/`.
 - Labels from `workflow.md`.
-- `LICENSE`.
+- `LICENSE` (MIT).
 
 ### Deviations
 - Identity was added to scope mid-milestone, in the design session.
 - No GitHub milestone or task issues: the scope arrived as one handoff bundle and merged as one PR (#1). There was nothing to decompose.
 - PR #1 was opened and merged from the BDFL's account, not an agent identity. No App exists yet (milestone 002).
-- The licence was not decided in the design session; it is added in this close-out.
+- The licence was not decided in the design session; MIT was chosen at close-out.
 - The BDFL handle is `amteb` (renamed from `atbraz`); CODEOWNERS in milestone 002 uses it.
 
 ### Process notes
