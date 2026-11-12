@@ -18,6 +18,7 @@ Every project repository carries the files below. Front matter is YAML. Numbers 
 | `docs/milestones/NNN-slug.md` | yes | Scope and review of one milestone |
 | `.mandate/agents.md` | yes | Framework agent contract at the pinned version; managed by `mandate sync` |
 | `.mandate/version` | yes | Pinned framework version |
+| `.mandate/templates/` | yes | ADR, RFC, milestone and task issue templates used by `mandate`; managed by `mandate sync` |
 | `.github/` | yes | CODEOWNERS, workflows |
 
 Profiles add paths ([profiles](profiles.md)).
