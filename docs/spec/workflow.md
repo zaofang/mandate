@@ -62,7 +62,7 @@ Versioning is SemVer.
 
 Design sessions in claude.ai produce gated documents; handoff gets them into the repo unchanged.
 
-A design session ends with one or more complete documents in [artifact](artifacts.md) formats, each preceded by its target path. The claude.ai project instructions, shipped by the template, require this ending. Numbers may be left as `NNNN`.
+A design session ends with one or more complete documents in [artifact](artifacts.md) formats. Each is a level-3 heading holding its target path in backticks, followed by one fenced `markdown` block with the whole file. The claude.ai project instructions, shipped as `.mandate/design-session.md`, require this ending. Numbers may be left as `NNNN`.
 
 Delivery, either way:
 
