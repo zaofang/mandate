@@ -47,7 +47,7 @@ Default-branch ruleset, committed as JSON in `.github/rulesets/`:
 
 Result: an agent PR touching a CODEOWNERS path waits for BDFL approval; any other PR merges on green.
 
-Tag ruleset: `v*` tags can be created only by the release workflow and the BDFL.
+Tag ruleset: creating, updating or deleting `v*` tags is refused to everyone except the owner's App, which is its only bypass actor (GitHub does not accept the Actions app as a bypass actor on repository rulesets). The release workflow pushes the tag with an App installation token.
 
 ## Semantic gates
 
