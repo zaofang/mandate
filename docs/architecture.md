@@ -3,7 +3,7 @@
 | Part | Location | State |
 |---|---|---|
 | Spec | `docs/spec/` | draft, milestone 001 |
-| Template | `template/` ([ADR-0014](adr/0014-template-directory.md)) | not started |
+| Template | `template/` ([ADR-0014](adr/0014-template-directory.md)) | core files; profiles and enforcement pending |
 | CLI | `bin/mandate`, `bin/mandate-<cmd>` | not started |
 | Brand | `docs/brand.md`, `assets/brand/` | done, milestone 001 |
 
