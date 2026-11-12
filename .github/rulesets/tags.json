@@ -1,0 +1,31 @@
+{
+  "name": "tags",
+  "target": "tag",
+  "enforcement": "active",
+  "conditions": {
+    "ref_name": {
+      "include": [
+        "refs/tags/v*"
+      ],
+      "exclude": []
+    }
+  },
+  "bypass_actors": [
+    {
+      "actor_id": 5729444,
+      "actor_type": "Integration",
+      "bypass_mode": "always"
+    }
+  ],
+  "rules": [
+    {
+      "type": "creation"
+    },
+    {
+      "type": "update"
+    },
+    {
+      "type": "deletion"
+    }
+  ]
+}

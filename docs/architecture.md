@@ -3,8 +3,8 @@
 | Part | Location | State |
 |---|---|---|
 | Spec | `docs/spec/` | draft, milestone 001 |
-| Template | `template/` ([ADR-0014](adr/0014-template-directory.md)), profile additions in `profiles/<profile>/` | core files, CODEOWNERS, rulesets, profiles; workflows pending |
-| CLI | `bin/mandate`, `bin/mandate-<cmd>` | `mandate-check` only; tests in `tests/` |
+| Template | `template/` ([ADR-0014](adr/0014-template-directory.md)), profile additions in `profiles/<profile>/` | done, milestone 002 |
+| CLI | `bin/mandate`, `bin/mandate-<cmd>` | `mandate-check`, `mandate-gate`; tests in `tests/` |
 | Brand | `docs/brand.md`, `assets/brand/` | done, milestone 001 |
 
 Spec files:

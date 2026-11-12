@@ -1,0 +1,11 @@
+name: mandate-check
+on: pull_request
+jobs:
+  mandate-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      # Mandate checks itself against its own template, not a release.
+      - run: MANDATE_SOURCE=. bin/mandate-check "origin/$GITHUB_BASE_REF"

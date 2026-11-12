@@ -44,6 +44,7 @@ project; adr 0001 proposed a; expect fail "invalid ADR status"
 project; adr 0001 "superseded by 0002" a; adr 0002 accepted b; expect pass "superseded ADR"
 project; adr 0001 accepted a; git -C "$dir" add -A; git -C "$dir" -c user.name=t -c user.email=t@t commit -qm adr; adr 0001 accepted changed; expect fail "edited Decision" HEAD
 project; adr 0001 accepted a; git -C "$dir" add -A; git -C "$dir" -c user.name=t -c user.email=t@t commit -qm adr; adr 0001 "superseded by 0002" a; adr 0002 accepted b; expect pass "supersession keeps Decision" HEAD
+project; adr 0001 accepted "uses <app>[bot]"; git -C "$dir" add -A; git -C "$dir" -c user.name=t -c user.email=t@t commit -qm adr; expect pass "unchanged Decision with brackets" HEAD
 project; printf '@AGENTS.md\n' >"$dir/CLAUDE.md"; expect fail "CLAUDE.md imports"
 project; echo extra >>"$dir/.mandate/agents.md"; expect fail "contract drift"
 project; rm "$dir/.github/workflows/stubs.yml"; expect fail "required check without job"

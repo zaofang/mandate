@@ -49,7 +49,7 @@ if [[ -n $base ]]; then
   for f in docs/adr/[0-9]*.md; do
     [[ -e $f ]] || break
     old=$(git show "$base:$f" 2>/dev/null) || continue
-    [[ $(decision <<<"$old") == $(decision <"$f") ]] || fail "$f: an accepted Decision changed; supersede it with a new ADR"
+    [[ "$(decision <<<"$old")" == "$(decision <"$f")" ]] || fail "$f: an accepted Decision changed; supersede it with a new ADR"
   done
 fi
 

@@ -12,6 +12,8 @@
 - Design-session instructions for claude.ai projects in `template/.mandate/design-session.md`.
 - `mandate check` (`bin/mandate-check`) and the `mandate-check` workflow in the template.
 - `mandate-gate` (`bin/mandate-gate`) and its workflow in the template.
+- `agent-pr` workflow in the template.
+- Mandate runs under its own template: `.mandate/`, CODEOWNERS, rulesets, `mandate-check`, `mandate-gate`, `ci`, `agent-pr`.
 - Profile additions in `profiles/tooling/` and `profiles/game/`.
 
 ### Changed

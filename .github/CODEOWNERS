@@ -1,0 +1,14 @@
+# Gated paths. No catch-all.
+/VISION.md        @amteb
+/ROADMAP.md       @amteb
+/AGENTS.md        @amteb
+/CLAUDE.md        @amteb
+/docs/adr/        @amteb
+/docs/rfc/        @amteb
+/docs/milestones/ @amteb
+/.mandate/        @amteb
+/.github/         @amteb
+# profile entries follow
+/docs/spec/       @amteb
+Cargo.toml        @amteb
+flake.nix         @amteb
