@@ -1,7 +1,7 @@
 ---
 id: 001
 title: Spec
-status: active
+status: done
 ---
 ## Goal
 A normative spec the BDFL approves as the basis for the template and CLI.
@@ -27,3 +27,23 @@ Name: Mandate (`mandate`). Weekly digest as an issue in the Mandate repository; 
 - The spec assumes GitHub behaviour not yet tested here: code-owner review with zero required approvals, `mandate-gate` re-running on review events, tag rulesets for the release workflow. Verified in the template milestone on a scratch repo.
 
 ## Review
+
+### Shipped
+- Spec: `docs/spec/` overview, artifacts, workflow, agents, enforcement, profiles, cli.
+- ADRs 0001 to 0013.
+- `VISION.md`, `ROADMAP.md`, `AGENTS.md`, `CLAUDE.md`, `README.md`, `CHANGELOG.md`, `docs/architecture.md`.
+- Identity: `docs/brand.md`, `assets/brand/`.
+- Labels from `workflow.md`.
+- `LICENSE`.
+
+### Deviations
+- Identity was added to scope mid-milestone, in the design session.
+- No GitHub milestone or task issues: the scope arrived as one handoff bundle and merged as one PR (#1). There was nothing to decompose.
+- PR #1 was opened and merged from the BDFL's account, not an agent identity. No App exists yet (milestone 002).
+- The licence was not decided in the design session; it is added in this close-out.
+- The BDFL handle is `amteb` (renamed from `atbraz`); CODEOWNERS in milestone 002 uses it.
+
+### Process notes
+- The handoff flow assumes the repository exists. Bootstrapping a new repository (initial commit on `main`, labels, topic) is not in the spec; `mandate init` will own it, but the template milestone should state it.
+- Agent sessions without the App cannot set the repository topic (no administration access, by design). `mandate init` either runs as the BDFL or leaves the topic as a `bdfl` task.
+- Agent sessions may be pinned to a branch name by their runner; the `agent/<issue>-<slug>` convention needs either runner support or an allowed alternative.
