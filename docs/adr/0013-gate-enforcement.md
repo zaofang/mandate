@@ -1,7 +1,7 @@
 ---
 id: 0013
 title: Gates are enforced by CODEOWNERS, rulesets and a gate check
-status: accepted
+status: superseded by 0015
 date: 2026-11-10
 ---
 ## Context
