@@ -1,6 +1,6 @@
 # CLI
 
-bash 5 over `git`, `gh` and `jq`. Git-style dispatch: `mandate <cmd>` runs `mandate-<cmd>` from `PATH`, so each command is one small script.
+bash 5 over `git`, `gh`, `jq` and `yq` ([ADR-0016](../adr/0016-yq.md)). Git-style dispatch: `mandate <cmd>` runs `mandate-<cmd>` from `PATH`, so each command is one small script.
 
 | Command | Effect |
 |---|---|
