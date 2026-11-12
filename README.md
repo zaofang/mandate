@@ -7,10 +7,10 @@ A project management framework for agent-built software.
 
 A process, repository template and CLI for running projects where one human architect (the BDFL) sets direction and approves decisions, and AI agents do the execution.
 
-Status: milestone 001 (spec), awaiting approval.
+Status: milestone 001 (spec) done; milestone 002 (template) proposed.
 
 - Spec: [docs/spec/](docs/spec/overview.md)
 - Decisions: [docs/adr/](docs/adr/)
-- Current milestone: [001 Spec](docs/milestones/001-spec.md)
+- Milestones: [docs/milestones/](docs/milestones/)
 - Roadmap: [ROADMAP.md](ROADMAP.md)
 - Brand: [docs/brand.md](docs/brand.md)
