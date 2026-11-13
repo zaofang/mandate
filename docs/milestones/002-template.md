@@ -1,7 +1,7 @@
 ---
 id: 002
 title: Template
-status: active
+status: done
 ---
 ## Goal
 A repository template that encodes the spec, with its enforcement verified on a scratch repository.
@@ -36,3 +36,28 @@ A repository template that encodes the spec, with its enforcement verified on a 
 - The scratch repository needs the zaofang App, which waits on the BDFL.
 
 ## Review
+
+### Shipped
+- Enforcement verified on `zaofang/mandate-scratch` (#7 to #10), results recorded in each issue.
+- ADR-0014 (template is a directory), ADR-0015 (agent PRs opened by the App, no bypass; supersedes ADR-0013), ADR-0016 (yq).
+- `template/`: core files, `.mandate/agents.md`, ADR, RFC and milestone templates, CODEOWNERS and ruleset JSON, `mandate-check`, `mandate-gate`, `ci` and `agent-pr` workflows.
+- Profile additions in `profiles/tooling/` and `profiles/game/`.
+- `mandate-check` and `mandate-gate` in `bin/`, with tests.
+- Design-session instructions in `template/.mandate/design-session.md`.
+- Spec: repository bootstrap, liveness and the stalled flag, required checks on every PR, App-pushed `v*` tags.
+- This repository runs under its own template (#55). `APP_ID`, `APP_PRIVATE_KEY` and the `main` and `tags` rulesets were applied on 2026-11-13.
+
+### Deviations
+- #16 moved to milestone 003: the instructions shipped, but no real design session has used them yet. Closed early by BDFL decision.
+- #24, #25 and #26 were added mid-milestone from the ceteris and yan feedback (BDFL decision, 2026-11-12).
+- No fresh repository was created from the template. Mandate's own adoption (#55, `mandate-check` green) stands in for "a new repository created from the template"; `mandate init` will exercise it.
+- `v*` tags: GitHub refuses the Actions app as a bypass actor on an org repository ruleset (#9). The zaofang-agent App is the only bypass and the release workflow pushes tags with an App token; the BDFL has no direct tag push.
+- `mandate-gate` cannot clear by its own new run on review: each run is its own check suite, so it re-runs the latest failed gate run for the head SHA (#8, #15).
+- #55 merged from the BDFL's account before the App key and rulesets were set, with the red `agent-pr` check ignored once (BDFL decision).
+- The scratch rulesets require only `mandate-gate`; this repository also requires `ci` and `mandate-check`.
+
+### Process notes
+- The App key lives only on the BDFL's Mac, so App setup waits on the BDFL being at that machine. Agent sessions there are blocked from writing secrets and rulesets without an explicit approval naming the action and target.
+- A PR opened from the BDFL's account cannot be approved by the BDFL. Agent PRs must go through `agent-pr` once the App is set; before that, a gated PR cannot satisfy code-owner review.
+- Triage carried forward: #18 and #27 to #42, mostly spec amendments from the yan and ceteris feedback.
+
