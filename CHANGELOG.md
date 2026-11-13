@@ -21,3 +21,4 @@
 - Spec: required checks must run on every PR; project CI exposes one aggregate `ci` job.
 - Spec: agents keep taking issues after reporting; idle active projects are reported stalled.
 - Agents push branches; the `agent-pr` workflow opens PRs as the App. Rulesets have no bypass (ADR-0015, supersedes ADR-0013).
+- Identity: ink olive ground (`#191a15`, light `#dee0d6`); the word takes the text colour, so 命 is the only colour in the lockup; dark 命 is `#2fa89a`.

@@ -30,17 +30,19 @@ Construction, in the word's cap height (C):
 
 ## Colour
 
-Turquoise inlay: Shang and Zhou bronzes were inlaid with turquoise. No red.
+Turquoise inlay on ink olive: Shang and Zhou bronzes were inlaid with turquoise. No red.
+
+命 is the only colour in the lockup; the word takes the text colour.
 
 | Role | Dark | Light |
 |---|---|---|
-| Background | `#2b1f16` | `#efe5d2` |
-| Surface | `#36281d` | `#e5d9c2` |
-| Line | `#4a3828` | `#cdbfa5` |
-| Text | `#efe5d2` | `#2b1f16` |
-| Muted | `#b3a28c` | `#6e6253` |
-| 命 | `#3fb8af` | `#186861` |
-| Word | `#e3c08a` | `#6b4a2a` |
+| Background | `#191a15` | `#dee0d6` |
+| Surface | `#242521` | `#d2d4ca` |
+| Line | `#3e3f3a` | `#b7b8af` |
+| Text | `#dee0d6` | `#191a15` |
+| Muted | `#a3a59c` | `#585953` |
+| 命 | `#2fa89a` | `#186861` |
+| Word | `#dee0d6` | `#191a15` |
 
 All text roles are at least 4.5:1 on their background.
 
@@ -50,11 +52,11 @@ Colour is never the only signal; each state has a glyph.
 
 | State | Glyph | Dark | Light |
 |---|---|---|---|
-| active | ● | `#3fb8af` | `#186861` |
+| active | ● | `#2fa89a` | `#186861` |
 | gate | ◐ | `#e3c08a` | `#7a5530` |
 | blocked | ○ | `#8fa9ee` | `#2f4fa8` |
 | info | ◆ | `#7cc79b` | `#2b6b4c` |
-| done | ✓ | `#b8a892` | `#6e6253` |
+| done | ✓ | `#a3a59c` | `#585953` |
 
 ## Icon masters
 
