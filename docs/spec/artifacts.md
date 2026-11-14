@@ -111,6 +111,7 @@ One coherent increment the BDFL can evaluate in one sitting, typically 5 to 20 i
 id: NNN
 title: <short>
 status: active | done
+appetite: <weeks>
 ---
 ## Goal
 One sentence.
@@ -124,6 +125,7 @@ Deliverables, each verifiable.
 How the BDFL judges it done.
 
 ## Risks
+It is the end of this milestone and it failed. Why?
 
 ## Review
 Filled at close-out.
@@ -133,7 +135,7 @@ Filled at close-out.
 ### Process notes
 ```
 
-A proposal is a milestone file in an open PR. Merging it makes it active.
+A proposal is a milestone file in an open PR. Merging it makes it active. `appetite` is the time the BDFL will spend, set in the proposal. When it runs out, agents close out with what shipped; extending it takes a gated PR.
 
 ## Task issue
 
