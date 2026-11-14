@@ -68,4 +68,25 @@ Run in CI on every PR:
 - `CLAUDE.md` imports `.mandate/agents.md` and `AGENTS.md`;
 - `.mandate/agents.md` matches the pinned framework version;
 - every required check in the committed ruleset JSON names a job that runs on every `pull_request` with no path or branch filter;
+- an ADR's optional `revisit` is a date or a condition;
+- a relative link in `docs/` resolves to a file in the repository; links to local paths (`file:`, `/`, `~`) fail;
+- task issue templates give every Acceptance box a `Verify:`;
+- every bullet under `Never` in the agent contract has a row in the rule ledger below;
 - profile checks ([profiles](profiles.md)).
+
+## Rule ledger
+
+What holds each rule of the [agent contract](agents.md). Enforced: GitHub refuses the violation. Partial: refused for some runners or paths. Contract: only the contract asks.
+
+| Rule | Mechanism | Status | Hole |
+|---|---|---|---|
+| Act as the BDFL | `agent-pr` opens PRs as the App; cloud proxies refuse ruleset and secret writes | Partial | A runner acting through the BDFL's account can approve a PR or, on the Mac, change rulesets ([ADR-0015](../adr/0015-agent-prs-opened-by-app.md)) |
+| Push to the default branch, force-push a branch with an open PR, or rewrite published history | Default-branch ruleset: PR required, no force push, no deletion, no bypass | Partial | Force-pushing an agent branch with an open PR is not refused |
+| Create tags or releases except through the release procedure | Tag ruleset: `v*` only by the App | Partial | A GitHub release on an existing tag is not refused |
+| Weaken enforcement | CODEOWNERS on `.github/`, `.mandate/`, `AGENTS.md`, `CLAUDE.md`; App has no workflows permission; profile oracle paths | Partial | Tests outside oracle paths are ungated |
+| Change another repository except by opening issues there | App installed only on Mandate repositories | Partial | Runners acting as the BDFL reach every repository he can |
+| Delete issues, docs, or branches with open PRs | Docs change only by PR; App has no administration permission | Partial | Branch deletion is not refused |
+| Gated paths merge only with BDFL approval | Code-owner review, stale approvals dismissed | Enforced | Approval from the BDFL's account by an agent acting as him |
+| Semantic gates (API break, release, size) | `mandate-gate` required check | Enforced | Detectors cover only what they test for |
+| An accepted ADR's Decision is never edited | `mandate-check` | Enforced | |
+| One issue per PR, stay inside the milestone | | Contract | |

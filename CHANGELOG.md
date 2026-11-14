@@ -17,6 +17,9 @@
 - Profile additions in `profiles/tooling/` and `profiles/game/`.
 
 ### Changed
+- Task issues: every Acceptance box ends with `Verify:`; Refs cite a Scope id. Milestone Scope items are numbered and Acceptance names end-to-end observables; close-out traces Scope to issues and reviews parked components.
+- Reporting: `ci-down`, flow figures (cycle time, gate wait, throughput, rework rate) computed from events, ADRs past `revisit`.
+- ADRs may carry `revisit`. `mandate-check` adds link, `Verify:`, `revisit` and rule-ledger checks; enforcement.md gains the rule ledger.
 - Spec: `v*` tags are pushed by the release workflow with an App token; the App is the tag ruleset's only bypass.
 - Spec: required checks must run on every PR; project CI exposes one aggregate `ci` job.
 - Spec: agents keep taking issues after reporting; idle active projects are reported stalled.

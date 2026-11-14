@@ -16,12 +16,16 @@ Before a project's rules exist:
 3. **Discover.** In-scope work found along the way becomes a new issue in the milestone. Out-of-scope work becomes an issue with no milestone, labeled `triage`.
 4. **Close out.** When every milestone issue is closed, an agent opens one gated PR that:
    - fills the milestone's Review and sets status `done`;
+   - lists Scope ids with no closed issue and closed issues with no Scope id (`mandate closeout` computes both);
+   - lists `parked` components and default-off switches added in the milestone, each enabled, given a wiring issue, or removed;
    - proposes the next milestone, drawn from ROADMAP Next and `triage` issues;
    - updates `ROADMAP.md`;
    - recommends a release if one is due.
 
    It then closes the GitHub milestone. The project is now awaiting.
 5. **Decide.** The BDFL merges (back to step 1), requests changes (agents revise the PR), or closes it with a comment saying what happens instead.
+
+A component merged with no call path from a real run is `parked`: its PR says so and opens a wiring issue. At most three are parked per milestone. A wiring PR includes a test with the component switched on.
 
 ## Labels
 
@@ -79,8 +83,21 @@ Approving the PR confirms the transcription. The claude.ai project carries `VISI
 | Agent blocked | Issue assigned to the BDFL; GitHub Mobile push |
 | Weekly | Digest issue in the Mandate repository, mentioning the BDFL; GitHub Mobile push |
 
+A project is **ci-down** when its last required-check run is older than its last push to a PR. `mandate status` and the digest report it before everything else.
+
 A project is **stalled** when it is active, `mandate next` has an issue, and the last agent activity (claim comment, push, PR event) is older than 2 hours. `mandate status` and the digest report it.
 
-`mandate digest` reports per project: state, stalled, active milestone progress, open gates with age, blocked issues, `triage` count, PRs merged in the period. Stalled projects, gates and blocks come first. The agent runner runs `mandate digest --post` weekly; it opens a new issue labeled `digest` and closes the previous one.
+`mandate digest` reports per project: state, ci-down, stalled, active milestone progress, open gates with age and mergeable state, blocked issues, `triage` count, PRs merged in the period, ADRs past their `revisit` date. ci-down and stalled projects, gates and blocks come first.
+
+Flow figures, computed from GitHub events only, never entered ([ADR-0017](../adr/0017-process-weight.md)):
+
+| Figure | Definition |
+|---|---|
+| Cycle time | claim comment to merge, per issue; median and 85th percentile |
+| Gate wait | gated PR opened to BDFL approval; per gate and median |
+| Throughput | issues closed per week |
+| Rework rate | share of merged PRs followed within 14 days by a `fix:` or revert PR touching the same files |
+
+Every figure carries the commit and date it was computed at. An issue past the 85th percentile of cycle time, or on its second fix attempt, is a candidate to split. The agent runner runs `mandate digest --post` weekly; it opens a new issue labeled `digest` and closes the previous one.
 
 Projects are found by the GitHub topic `mandate` on the owners listed in `~/.config/mandate/owners`.
