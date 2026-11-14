@@ -1,7 +1,7 @@
 ---
 id: 0008
 title: Moderate process weight
-status: accepted
+status: superseded by 0017
 date: 2026-11-10
 ---
 ## Context

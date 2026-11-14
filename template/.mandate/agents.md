@@ -23,7 +23,7 @@ Normative for every agent session in a Mandate project. Copied to `.mandate/agen
 
 When an issue needs a gated change (dependency, public API, architecture, scope):
 
-1. Draft it as its own PR (ADR, RFC or manifest change), labeled `gate`.
+1. Draft it as its own PR (ADR, milestone or manifest change), labeled `gate`.
 2. Link it from the issue, remove `wip`, comment `Waiting on #<PR>`.
 3. Take another issue.
 

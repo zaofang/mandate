@@ -27,7 +27,6 @@ Every change is gated or ungated.
 |---|---|
 | Vision, non-goals, project status | `VISION.md` |
 | Architecture decisions | `docs/adr/` |
-| Large proposals | `docs/rfc/` |
 | Milestone scope, close-out, roadmap | `docs/milestones/`, `ROADMAP.md` |
 | Public API | per profile |
 | Dependencies | per profile |
