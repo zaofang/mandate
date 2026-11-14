@@ -41,7 +41,6 @@ check_series() {
   done
 }
 check_series docs/adr 4 '^(accepted|superseded by [0-9]{4})$'
-check_series docs/rfc 4 '^(accepted|withdrawn)$'
 check_series docs/milestones 3 '^(active|done)$'
 
 decision() { awk '/^## Decision$/{on=1; next} /^## /{on=0} on'; }

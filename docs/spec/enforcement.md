@@ -30,7 +30,6 @@ Agents push branches; they never open PRs or submit reviews. The `agent-pr` work
 /AGENTS.md        @<bdfl>
 /CLAUDE.md        @<bdfl>
 /docs/adr/        @<bdfl>
-/docs/rfc/        @<bdfl>
 /docs/milestones/ @<bdfl>
 /.mandate/        @<bdfl>
 /.github/         @<bdfl>
@@ -63,7 +62,7 @@ Detectors common to all profiles: a change to a released section of `CHANGELOG.m
 Run in CI on every PR:
 
 - required files exist; front matter parses; status values are valid;
-- ADR, RFC and milestone numbers are unique and contiguous;
+- ADR and milestone numbers are unique and contiguous;
 - an accepted ADR's Decision section is unchanged unless the same PR supersedes it;
 - `CLAUDE.md` imports `.mandate/agents.md` and `AGENTS.md`;
 - `.mandate/agents.md` matches the pinned framework version;

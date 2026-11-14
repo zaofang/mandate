@@ -14,12 +14,11 @@ Every project repository carries the files below. Front matter is YAML. Numbers 
 | `CHANGELOG.md` | Unreleased: no; released sections: via release PR | Keep a Changelog format |
 | `docs/architecture.md` | no | Current structure; must agree with accepted ADRs |
 | `docs/adr/NNNN-slug.md` | yes | One decision each |
-| `docs/rfc/NNNN-slug.md` | yes | Proposals larger than one decision |
 | `docs/milestones/NNN-slug.md` | yes | Scope and review of one milestone |
 | `.mandate/agents.md` | yes | Framework agent contract at the pinned version; managed by `mandate sync` |
 | `.mandate/version` | yes | Pinned framework version |
 | `.mandate/design-session.md` | yes | claude.ai project instructions for design sessions ([handoff](workflow.md#handoff)) |
-| `.mandate/templates/` | yes | ADR, RFC, milestone and task issue templates used by `mandate`; managed by `mandate sync` |
+| `.mandate/templates/` | yes | ADR, milestone and task issue templates used by `mandate`; managed by `mandate sync` |
 | `.github/` | yes | CODEOWNERS, workflows |
 
 Profiles add paths ([profiles](profiles.md)).
@@ -81,30 +80,9 @@ date: YYYY-MM-DD
 - An accepted ADR's Decision is never edited; a new ADR supersedes it, and the old one's status changes in the same PR.
 - `docs/architecture.md` is updated in the same PR when the decision changes structure.
 
-## RFC
-
-Required when a change spans more than one milestone, replaces several ADRs, or adds a subsystem or repository. Otherwise write an ADR.
-
-```markdown
----
-id: NNNN
-title: <short>
-status: accepted | withdrawn
-date: YYYY-MM-DD
----
-## Summary
-## Motivation
-## Design
-## Drawbacks
-## Alternatives
-## Unresolved questions
-## Plan
-ADRs and roadmap entries this RFC produces.
-```
-
 ## Milestone
 
-One coherent increment the BDFL can evaluate in one sitting, typically 5 to 20 issues.
+One coherent increment the BDFL can evaluate in one sitting, typically 5 to 20 issues. A change spanning several milestones is a `ROADMAP.md` entry plus the ADRs it needs ([ADR-0017](../adr/0017-process-weight.md)).
 
 ```markdown
 ---
