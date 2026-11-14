@@ -17,6 +17,14 @@
 - Profile additions in `profiles/tooling/` and `profiles/game/`.
 
 ### Changed
+- No RFC artifact: multi-milestone changes are a ROADMAP entry plus ADRs; flow is measured from GitHub events, never estimated (ADR-0017, supersedes ADR-0008).
+- CLI: `mandate new <adr|milestone>` and `mandate number` replace `adr new`, `rfc new` and `milestone new`.
+- Milestone 003 covers the agent-loop commands; bootstrap and reporting commands move to 004.
+- Agent contract: finish before starting; `Handoff` comment when a session stops mid-issue; what counts as BDFL approval; block questions as cards, ungated ones default after 24 hours; never weaken a check, block instead; two fix attempts plus one infra rerun; at most three open gates, each opening with a decision card and kept mergeable.
+- `mandate next` picks own red PRs, then unmergeable gates, then the issue that unblocks most.
+- Labels: `bdfl` folded into `blocked`. Branch names are free; issues link by `Closes #N`.
+- Milestones carry an `appetite`; Risks is written as a pre-mortem. The BDFL pulls `triage` issues in by setting their milestone.
+- Profiles gate oracle paths; `mandate-gate` fails gated PRs over 400 lines unless labeled `large`.
 - Task issues: every Acceptance box ends with `Verify:`; Refs cite a Scope id. Milestone Scope items are numbered and Acceptance names end-to-end observables; close-out traces Scope to issues and reviews parked components.
 - Reporting: `ci-down`, flow figures (cycle time, gate wait, throughput, rework rate) computed from events, ADRs past `revisit`.
 - ADRs may carry `revisit`. `mandate-check` adds link, `Verify:`, `revisit` and rule-ledger checks; enforcement.md gains the rule ledger.

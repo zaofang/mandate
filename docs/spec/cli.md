@@ -8,9 +8,8 @@ bash 5 over `git`, `gh`, `jq` and `yq` ([ADR-0016](../adr/0016-yq.md)). Git-styl
 | `mandate sync [--upgrade]` | Reapply template-managed files, labels and rulesets at the pinned version; `--upgrade` opens a gated PR bumping `.mandate/version`. Refuses a ruleset whose required checks fail `mandate check` |
 | `mandate status [repo...]` | State, stalled ([workflow](workflow.md#reporting)), active milestone progress, open gates, blocked issues |
 | `mandate next [--claim]` | Next workable issue; `--claim` labels it `wip` and comments the session id |
-| `mandate adr new <title>` | ADR file from template with the next number, on a new branch |
-| `mandate rfc new <title>` | Same, for an RFC |
-| `mandate milestone new <title>` | Same, for a milestone proposal |
+| `mandate new <adr\|milestone> <title>` | Document from its template, numbered `NNNN` or `NNN`, on a new branch |
+| `mandate number` | Replace `NNNN`/`NNN` placeholders with the next free numbers; run as the final commit after merging main |
 | `mandate handoff <file>` | Commit a design-session document as a gated PR |
 | `mandate block <issue> <question>` | Label `blocked`, assign the BDFL, comment |
 | `mandate closeout` | Verify the milestone is done; scaffold Review and next proposal; close the GitHub milestone |
@@ -20,6 +19,11 @@ bash 5 over `git`, `gh`, `jq` and `yq` ([ADR-0016](../adr/0016-yq.md)). Git-styl
 
 ## `mandate next`
 
-Picks from the active milestone, skipping issues labeled `wip` or `blocked` and issues whose `Depends on #N` targets are open. Lowest issue number first, so creation order is priority order.
+Picks from the active milestone, skipping issues labeled `wip` or `blocked` and issues whose `Depends on #N` targets are open. Order:
+
+1. the session's own open PR with failing checks or requested changes;
+2. the session's own gated PR that is no longer mergeable;
+3. the workable issue with the most open issues depending on it;
+4. lowest issue number, so creation order breaks ties.
 
 `--claim` writes the label, then re-reads the issue; if another session's claim comment precedes its own, it releases and picks again.

@@ -14,12 +14,11 @@ Every project repository carries the files below. Front matter is YAML. Numbers 
 | `CHANGELOG.md` | Unreleased: no; released sections: via release PR | Keep a Changelog format |
 | `docs/architecture.md` | no | Current structure; must agree with accepted ADRs |
 | `docs/adr/NNNN-slug.md` | yes | One decision each |
-| `docs/rfc/NNNN-slug.md` | yes | Proposals larger than one decision |
 | `docs/milestones/NNN-slug.md` | yes | Scope and review of one milestone |
 | `.mandate/agents.md` | yes | Framework agent contract at the pinned version; managed by `mandate sync` |
 | `.mandate/version` | yes | Pinned framework version |
 | `.mandate/design-session.md` | yes | claude.ai project instructions for design sessions ([handoff](workflow.md#handoff)) |
-| `.mandate/templates/` | yes | ADR, RFC, milestone and task issue templates used by `mandate`; managed by `mandate sync` |
+| `.mandate/templates/` | yes | ADR, milestone and task issue templates used by `mandate`; managed by `mandate sync` |
 | `.github/` | yes | CODEOWNERS, workflows |
 
 Profiles add paths ([profiles](profiles.md)).
@@ -83,36 +82,16 @@ revisit: YYYY-MM-DD | <observable condition>   # optional
 - `docs/architecture.md` is updated in the same PR when the decision changes structure.
 - `revisit` names when the premises should be checked again. Revisiting means a new ADR that supersedes or confirms; the Decision is never edited.
 
-## RFC
-
-Required when a change spans more than one milestone, replaces several ADRs, or adds a subsystem or repository. Otherwise write an ADR.
-
-```markdown
----
-id: NNNN
-title: <short>
-status: accepted | withdrawn
-date: YYYY-MM-DD
----
-## Summary
-## Motivation
-## Design
-## Drawbacks
-## Alternatives
-## Unresolved questions
-## Plan
-ADRs and roadmap entries this RFC produces.
-```
-
 ## Milestone
 
-One coherent increment the BDFL can evaluate in one sitting, typically 5 to 20 issues.
+One coherent increment the BDFL can evaluate in one sitting, typically 5 to 20 issues. A change spanning several milestones is a `ROADMAP.md` entry plus the ADRs it needs ([ADR-0017](../adr/0017-process-weight.md)).
 
 ```markdown
 ---
 id: NNN
 title: <short>
 status: active | done
+appetite: <weeks>
 ---
 ## Goal
 One sentence.
@@ -126,6 +105,7 @@ Deliverables, each verifiable, numbered `S1`, `S2`, ...
 How the BDFL judges it done: observables from an end-to-end run, not "tests pass".
 
 ## Risks
+It is the end of this milestone and it failed. Why?
 
 ## Review
 Filled at close-out.
@@ -135,7 +115,7 @@ Filled at close-out.
 ### Process notes
 ```
 
-A proposal is a milestone file in an open PR. Merging it makes it active.
+A proposal is a milestone file in an open PR. Merging it makes it active. `appetite` is the time the BDFL will spend, set in the proposal. When it runs out, agents close out with what shipped; extending it takes a gated PR.
 
 ## Task issue
 
