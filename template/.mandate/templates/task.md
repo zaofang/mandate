@@ -1,9 +1,9 @@
 ## Goal
 
 ## Acceptance
-- [ ] <checkable>
+- [ ] <checkable>. Verify: <command, test name or observable>
 
 ## Constraints
 
 ## Refs
-Milestone, ADRs. `Depends on #N` lines are honored by `mandate next`.
+Milestone, `Scope: S<n>` or `Scope: discovered`, ADRs. `Depends on #N` lines are honored by `mandate next`.

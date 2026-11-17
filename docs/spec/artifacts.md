@@ -69,6 +69,7 @@ id: NNNN
 title: <the decision, stated>
 status: accepted | superseded by NNNN
 date: YYYY-MM-DD
+revisit: YYYY-MM-DD | <observable condition>   # optional
 ---
 ## Context
 ## Decision
@@ -79,6 +80,7 @@ date: YYYY-MM-DD
 - Merged means accepted. A rejected proposal stays a closed PR.
 - An accepted ADR's Decision is never edited; a new ADR supersedes it, and the old one's status changes in the same PR.
 - `docs/architecture.md` is updated in the same PR when the decision changes structure.
+- `revisit` names when the premises should be checked again. Revisiting means a new ADR that supersedes or confirms; the Decision is never edited.
 
 ## Milestone
 
@@ -95,12 +97,12 @@ appetite: <weeks>
 One sentence.
 
 ## Scope
-Deliverables, each verifiable.
+Deliverables, each verifiable, numbered `S1`, `S2`, ...
 
 ## Out of scope
 
 ## Acceptance
-How the BDFL judges it done.
+How the BDFL judges it done: observables from an end-to-end run, not "tests pass".
 
 ## Risks
 It is the end of this milestone and it failed. Why?
@@ -120,8 +122,10 @@ A proposal is a milestone file in an open PR. Merging it makes it active. `appet
 ```markdown
 ## Goal
 ## Acceptance
-- [ ] <checkable>
+- [ ] <checkable>. Verify: <command, test name or observable>
 ## Constraints
 ## Refs
-Milestone, ADRs. `Depends on #N` lines are honored by `mandate next`.
+Milestone, `Scope: S<n>` or `Scope: discovered`, ADRs. `Depends on #N` lines are honored by `mandate next`.
 ```
+
+Every Acceptance box ends with `Verify:`. A box with no possible check says `Verify: BDFL` and the issue is `blocked` until the BDFL checks it.

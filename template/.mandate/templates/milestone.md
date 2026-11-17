@@ -8,12 +8,12 @@ appetite: <weeks>
 One sentence.
 
 ## Scope
-Deliverables, each verifiable.
+Deliverables, each verifiable, numbered `S1`, `S2`, ...
 
 ## Out of scope
 
 ## Acceptance
-How the BDFL judges it done.
+How the BDFL judges it done: observables from an end-to-end run, not "tests pass".
 
 ## Risks
 It is the end of this milestone and it failed. Why?
