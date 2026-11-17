@@ -57,6 +57,8 @@ Some gates are not paths: a breaking API change can land in any source file. The
 
 Detectors common to all profiles: a change to a released section of `CHANGELOG.md`; the `release` label.
 
+Size: a gated PR changing more than 400 lines, lockfiles and generated files excluded, fails `mandate-gate` unless the BDFL labels it `large`. Review finds fewer defects past 400 lines.
+
 ## `mandate-check`
 
 Run in CI on every PR:

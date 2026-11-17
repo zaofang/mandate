@@ -13,7 +13,7 @@ Before a project's rules exist:
 
 1. **Approve.** The BDFL merges a milestone proposal. An agent creates the GitHub milestone `NNN <title>` and decomposes Scope into task issues in it.
 2. **Execute.** Agents pull issues ([agents](agents.md)); one PR per issue.
-3. **Discover.** In-scope work found along the way becomes a new issue in the milestone. Out-of-scope work becomes an issue with no milestone, labeled `triage`.
+3. **Discover.** In-scope work found along the way becomes a new issue in the milestone. Out-of-scope work becomes an issue with no milestone, labeled `triage`. The BDFL may pull a `triage` issue into the active milestone by setting its milestone; that act approves the scope. Agents never do it.
 4. **Close out.** When every milestone issue is closed, an agent opens one gated PR that:
    - fills the milestone's Review and sets status `done`;
    - proposes the next milestone, drawn from ROADMAP Next and `triage` issues;
@@ -28,10 +28,9 @@ Before a project's rules exist:
 | Label | Meaning | Set by |
 |---|---|---|
 | `gate` | Needs a BDFL decision | agents, CI |
-| `blocked` | Agent cannot continue; issue assigned to the BDFL | agents |
+| `blocked` | Waiting on the BDFL: an agent question, work only the BDFL can do (accounts, purchases, taste calls), or a step the runner or machine refuses; the comment names which. Assigned to the BDFL | anyone |
 | `wip` | Claimed by an agent session | agents |
 | `triage` | Out-of-scope discovery, considered at the next close-out | agents |
-| `bdfl` | Work only the BDFL can do: accounts, purchases, taste calls | anyone |
 | `bug` | Defect | anyone |
 | `release` | Release PR | agents |
 | `handoff` | Issue carrying a design-session document | BDFL |
@@ -42,7 +41,7 @@ PR kind is carried by the title, not labels.
 
 ## Branches and PRs
 
-- Agent branches: `agent/<issue>-<slug>`.
+- Branch names are free; runners may pin them. The issue link is the PR body's `Closes #N`.
 - One issue per PR. Body: `Closes #N`, summary, non-obvious decisions, how it was verified.
 - Titles follow Conventional Commits (`feat:`, `fix:`, `docs:`, `refactor:`, `test:`, `chore:`; `!` marks breaking).
 - Squash merge only; linear history.

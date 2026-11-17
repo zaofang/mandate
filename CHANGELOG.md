@@ -20,6 +20,11 @@
 - No RFC artifact: multi-milestone changes are a ROADMAP entry plus ADRs; flow is measured from GitHub events, never estimated (ADR-0017, supersedes ADR-0008).
 - CLI: `mandate new <adr|milestone>` and `mandate number` replace `adr new`, `rfc new` and `milestone new`.
 - Milestone 003 covers the agent-loop commands; bootstrap and reporting commands move to 004.
+- Agent contract: finish before starting; `Handoff` comment when a session stops mid-issue; what counts as BDFL approval; block questions as cards, ungated ones default after 24 hours; never weaken a check, block instead; two fix attempts plus one infra rerun; at most three open gates, each opening with a decision card and kept mergeable.
+- `mandate next` picks own red PRs, then unmergeable gates, then the issue that unblocks most.
+- Labels: `bdfl` folded into `blocked`. Branch names are free; issues link by `Closes #N`.
+- Milestones carry an `appetite`; Risks is written as a pre-mortem. The BDFL pulls `triage` issues in by setting their milestone.
+- Profiles gate oracle paths; `mandate-gate` fails gated PRs over 400 lines unless labeled `large`.
 - Spec: `v*` tags are pushed by the release workflow with an App token; the App is the tag ruleset's only bypass.
 - Spec: required checks must run on every PR; project CI exposes one aggregate `ci` job.
 - Spec: agents keep taking issues after reporting; idle active projects are reported stalled.

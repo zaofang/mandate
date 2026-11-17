@@ -6,4 +6,4 @@
 - Engine and package manifests are gated: <paths listed at init>.
 - Every asset carries a REUSE licence record; `mandate-check` fails on unlicensed files.
 - Milestone Acceptance includes a playable build; the close-out PR links it and the BDFL playtests before approving.
-- Feel, art direction and tuning targets are `bdfl` tasks or `blocked` questions with options, never agent decisions.
+- Feel, art direction and tuning targets are `blocked` questions with options, never agent decisions.

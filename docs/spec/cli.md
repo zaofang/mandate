@@ -19,6 +19,11 @@ bash 5 over `git`, `gh`, `jq` and `yq` ([ADR-0016](../adr/0016-yq.md)). Git-styl
 
 ## `mandate next`
 
-Picks from the active milestone, skipping issues labeled `wip` or `blocked` and issues whose `Depends on #N` targets are open. Lowest issue number first, so creation order is priority order.
+Picks from the active milestone, skipping issues labeled `wip` or `blocked` and issues whose `Depends on #N` targets are open. Order:
+
+1. the session's own open PR with failing checks or requested changes;
+2. the session's own gated PR that is no longer mergeable;
+3. the workable issue with the most open issues depending on it;
+4. lowest issue number, so creation order breaks ties.
 
 `--claim` writes the label, then re-reads the issue; if another session's claim comment precedes its own, it releases and picks again.
