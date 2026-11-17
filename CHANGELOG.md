@@ -17,6 +17,9 @@
 - Profile additions in `profiles/tooling/` and `profiles/game/`.
 
 ### Changed
+- No RFC artifact: multi-milestone changes are a ROADMAP entry plus ADRs; flow is measured from GitHub events, never estimated (ADR-0017, supersedes ADR-0008).
+- CLI: `mandate new <adr|milestone>` and `mandate number` replace `adr new`, `rfc new` and `milestone new`.
+- Milestone 003 covers the agent-loop commands; bootstrap and reporting commands move to 004.
 - Spec: `v*` tags are pushed by the release workflow with an App token; the App is the tag ruleset's only bypass.
 - Spec: required checks must run on every PR; project CI exposes one aggregate `ci` job.
 - Spec: agents keep taking issues after reporting; idle active projects are reported stalled.

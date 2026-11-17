@@ -18,7 +18,7 @@ One architect, many repositories, AI agents doing the execution. Without a fixed
 - Teams, permission models, or roles beyond BDFL and agent.
 - Running agents: scheduling, hosting and sandboxing belong to infra.
 - A general product for others. Published openly, built for one user.
-- Estimates, velocity, burndown.
+- Estimates entered by anyone: points, velocity, burndown. Flow is measured from GitHub events only.
 
 ## Success criteria
 - A new project goes from idea to an approved first milestone in one design session and one handoff.
