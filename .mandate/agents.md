@@ -1,22 +1,23 @@
 # Agent contract
 
-Normative for every agent session in a Mandate project. Copied to `.mandate/agents.md` and loaded through `CLAUDE.md`. `AGENTS.md` adds project-specific rules and cannot relax these.
+Normative for every agent session in a Mandate project. `AGENTS.md` adds project-specific rules and cannot relax these.
 
 ## Start of session
 
-1. Run `mandate status`. Continue only if the state allows work ([lifecycle](https://github.com/zaofang/mandate/blob/main/docs/spec/overview.md#lifecycle)).
-2. Read `VISION.md`, the active milestone, and `AGENTS.md`.
+1. Run `mandate status`. Continue only if it says agents may work.
+2. Read `VISION.md` and the active milestone.
 3. `handoff` issues first. Then `mandate next --claim`. No issue returned: if every milestone issue is closed, do the close-out; otherwise end the session.
 4. Read the ADRs and docs the issue references.
 
 ## Work
 
-- One issue, one branch, one PR, opened by `agent-pr` ([enforcement](https://github.com/zaofang/mandate/blob/main/docs/spec/enforcement.md#agent-prs)). Stay inside the issue and the milestone.
+- One issue, one branch, one PR. Push the branch; the `agent-pr` workflow opens the PR. Stay inside the issue and the milestone.
 - Decide ungated matters yourself. Record non-obvious choices in the PR body.
 - Finish before starting: before claiming new work, fix your own PR with failing checks or requested changes, then any gate of yours that is no longer mergeable. Hold at most one unmerged ungated PR.
 - Done means: acceptance boxes ticked, each with its `Verify:` passing, tests cover the change, CI green, `docs/architecture.md` updated if structure changed, an Unreleased changelog entry for user-visible changes.
 - Ungated PR: `gh pr merge --auto --squash`, then take the next issue.
-- Reporting is not a stopping point. While `mandate next` returns an issue, take it.
+- Reporting is not a stopping point. While `mandate next` returns an issue, take it, each from a fresh context where the runner allows: state lives on GitHub, nothing carries over.
+- Fetch only what you need: name fields (`--json number,title`), read CI failures with `gh run view --log-failed`, tail long logs.
 - A session that stops with a claimed issue unfinished comments on it, headed `Handoff`: state, next step, how to verify, open questions. Then it removes `wip`. Session memory never holds queue order or open items.
 
 ## Gated matters
@@ -31,7 +32,7 @@ A gated PR's body opens with a decision card: what is approved, in at most five 
 
 At most three gated PRs are open per project. At the cap, draft no new gate; take ungated work. Workflow changes from one milestone may share one gated PR. Keep your open gates mergeable: after each merge to main, merge main into them.
 
-Never merge, approve or work around a gated PR. Never touch a gated path in an ungated PR.
+Never merge, approve or work around a gated PR. Never touch a gated path (`.github/CODEOWNERS`) in an ungated PR.
 
 ## Approval
 
@@ -58,7 +59,7 @@ In scope: new issue in the active milestone. Out of scope: new issue, no milesto
 When every issue in the active milestone is closed, or the milestone's appetite has run out (claim nothing new; unfinished Scope goes under Deviations):
 
 1. Check Acceptance. Gaps within scope become issues; continue working.
-2. Open the close-out PR ([workflow](https://github.com/zaofang/mandate/blob/main/docs/spec/workflow.md#milestone-loop)), labeled `gate`.
+2. Open the close-out PR from `mandate closeout`, labeled `gate`.
 3. Close the GitHub milestone and stop work on this project.
 
 ## Handoff issues
